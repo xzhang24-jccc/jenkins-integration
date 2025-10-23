@@ -4,12 +4,13 @@ pipeline {
     environment {
         GIT_CREDENTIALS = 'github-credentials-id'   // Jenkins GitHub credentials ID
         SFTP_CREDENTIALS = 'sftp-credentials-id'    // Jenkins username/password credentials ID
-        SFTP_HOST = 'your.sftp.server.com'
-        REMOTE_PATH = '/remote/path'
+        SFTP_HOST = 'ac-easapi.jccc.edu'
+        REMOTE_PATH = '/home/xzhang24/'
     }
     
     stages {
         stage('Checkout from GitHub') {
+            echo 'Checkout from GitHub ...'
             steps {
                 git branch: 'main', url: 'https://github.com/xzhang24-jccc/jenkins-integration.git'
             }
