@@ -23,7 +23,7 @@ pipeline {
                     withCredentials([usernamePassword(
                         credentialsId: "${SFTP_CREDENTIALS}", 
                         usernameVariable: 'SSH_USER', 
-                        passwordVariable: '')]) {
+                        passwordVariable: 'SSH_PASS')]) {
                         sh """
                         # Using sftp batch mode
                         sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
