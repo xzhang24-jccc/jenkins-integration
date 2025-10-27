@@ -26,7 +26,7 @@ pipeline {
                         passwordVariable: 'SFTP_PASS')]) {
                         sh """
                         # Using sftp batch mode
-                        sftp xzhang24@ac-easapi.jccc.edu <<EOF
+                        sftp -i /home/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
                         put -r * /home/xzhang24/
                         bye
 EOF
