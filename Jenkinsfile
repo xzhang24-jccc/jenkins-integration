@@ -26,7 +26,7 @@ pipeline {
                         passwordVariable: 'SSH_PASS')]) {
                         sh """
                         # Using sftp batch mode
-                        sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
+                        sshpass -p "SFTP_PASS" sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
                         put -r * /home/xzhang24/
                         bye
 EOF
