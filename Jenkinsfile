@@ -22,11 +22,11 @@ pipeline {
                 script {
                     withCredentials([usernamePassword(
                         credentialsId: "${SFTP_CREDENTIALS}", 
-                        usernameVariable: 'xzhang24    ', 
-                        passwordVariable: 'Pingan11140107!')]) {
+                        usernameVariable: 'SSH_USER', 
+                        passwordVariable: '')]) {
                         sh """
                         # Using sftp batch mode
-                        sftp -i /home/jenkins/.ssh/id_rsa -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
+                        sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
                         put -r * /home/xzhang24/
                         bye
 EOF
