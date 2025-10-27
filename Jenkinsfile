@@ -24,7 +24,7 @@ pipeline {
                         credentialsId: "${SFTP_CREDENTIALS}", 
                         usernameVariable: 'SSH_USER', 
                         passwordVariable: 'SSH_PASS')]) {
-                        sh """
+                        sh '''
                         # Using sftp batch mode
                         TIMESTAMP=$(date +"%Y%m%d_%H%M%S")                   
                         sshpass -p "${SSH_PASS}" sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
@@ -34,7 +34,7 @@ pipeline {
                         put -r * home/xzhang24/sftpJenkins_$TIMESTAMP
                         bye
 EOF
-                        """
+                        '''
                     }
                 }
             }
