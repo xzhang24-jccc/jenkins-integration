@@ -26,12 +26,13 @@ pipeline {
                         passwordVariable: 'SSH_PASS')]) {
                         sh '''
                         # Using sftp batch mode
-                        TIMESTAMP=$(date +"%Y%m%d_%H%M%S")                   
+                        TIMESTAMP=$(date +"%Y%m%d_%H%M%S")     
+                        DESTDIR=/home/xzhang24/sftpJenkins_$TIMESTAMP
                         sshpass -p "${SSH_PASS}" sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
 
-                        mkdir -p /home/xzhang24/sftpJenkins_$TIMESTAMP
+                        CD $DESTDIR
                         
-                        put -r * home/xzhang24/sftpJenkins_$TIMESTAMP
+                        put -r * $DESTDIR
                         bye
 EOF
                         '''
