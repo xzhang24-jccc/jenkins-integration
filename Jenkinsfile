@@ -26,7 +26,7 @@ pipeline {
                         passwordVariable: 'SFTP_PASS')]) {
                         sh """
                         # Using sftp batch mode
-                        sftp -i xzhang24@ac-easapi.jccc.edu <<EOF
+                        sftp xzhang24@ac-easapi.jccc.edu <<EOF
                         put -r * /home/xzhang24/
                         bye
 EOF
