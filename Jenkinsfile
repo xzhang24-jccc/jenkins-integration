@@ -10,8 +10,8 @@ pipeline {
     
     stages {
         stage('Checkout from GitHub') {
-            echo 'Checkout from GitHub ...'
             steps {
+                echo 'Checkout from GitHub ...'
                 git branch: 'main', url: 'https://github.com/xzhang24-jccc/jenkins-integration.git'
             }
         }
