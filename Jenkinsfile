@@ -29,8 +29,8 @@ pipeline {
                         TIMESTAMP=$(date +"%Y%m%d_%H%M%S")     
                         DESTDIR=/home/xzhang24/sftpJenkins_$TIMESTAMP
                         sshpass -p "${SSH_PASS}" sftp -o StrictHostKeyChecking=no xzhang24@ac-easapi.jccc.edu <<EOF
-
-                        CD $DESTDIR
+                        mkdir $DESTDIR
+                        cd $DESTDIR
                         
                         put -r * $DESTDIR
                         bye
