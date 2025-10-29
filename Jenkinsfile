@@ -16,6 +16,10 @@ pipeline {
             }
         }
 
+        triggers {
+            githubPush()
+        }
+        
         stage('SFTP files to test account') {
             steps {
                 echo 'SFTP files to test account ...'
