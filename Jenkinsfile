@@ -7,11 +7,6 @@ pipeline {
         SFTP_HOST = 'ac-easapi.jccc.edu'
         REMOTE_PATH = '/home/xzhang24/'
     }
-
-    // For webhook
-    triggers {
-        githubPush()
-    }
     
     stages {
         stage('Checkout from GitHub') {
