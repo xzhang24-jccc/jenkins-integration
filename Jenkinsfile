@@ -7,6 +7,10 @@ pipeline {
         SFTP_HOST = 'ac-easapi.jccc.edu'
         REMOTE_PATH = '/home/xzhang24/'
     }
+
+    triggers {
+        githubPush()
+    }
     
     stages {
         stage('Checkout from GitHub') {
@@ -14,10 +18,6 @@ pipeline {
                 echo 'Checkout from GitHub ...'
                 git branch: 'main', url: 'https://github.com/xzhang24-jccc/jenkins-integration.git'
             }
-        }
-
-        triggers {
-            githubPush()
         }
         
         stage('SFTP files to test account') {
